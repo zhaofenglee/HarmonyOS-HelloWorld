@@ -1,14 +1,13 @@
 import router from '@ohos.router';
-
 @Entry
 @Component
-struct Index {
-  @State message: string = 'Hello World';
+struct SecondPage {
+  @State message: string = 'Hi HarmonyOS';
 
   build() {
     RelativeContainer() {
       Text(this.message)
-        .id('HelloWorld')
+        .id('SecondPageHelloWorld')
         .fontSize(50)
         .fontWeight(FontWeight.Bold)
         .alignRules({
@@ -16,19 +15,13 @@ struct Index {
           middle: { anchor: '__container__', align: HorizontalAlign.Center }
         })
 
-      Button('NextPage')
+      Button('Back')
         .fontSize(24)
-        .width(200)
+        .width(100)
         .height(50)
-        .margin({ top: 10 })
-        .alignRules({
-          top: { anchor: 'HelloWorld', align: VerticalAlign.Bottom },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
         .onClick(()=>{
-          router.pushUrl({url:'pages/SecondPage'})
+          router.back({url:'pages/Index'})
         })
-
     }
     .height('100%')
     .width('100%')
